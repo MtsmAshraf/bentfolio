@@ -1,0 +1,11 @@
+.PartC{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.PartC span{
+    color: var(--text-darker-color);
+    font-size: 0.75rem;
+}

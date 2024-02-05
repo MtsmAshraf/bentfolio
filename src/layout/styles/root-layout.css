@@ -1,0 +1,579 @@
+.root-layout{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px,1fr));
+    gap: 1.5rem;
+    height: 100vh;
+    padding: 1.5rem;
+}
+.root-layout > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    height: auto;
+    max-height: 100%;
+}
+@media (min-width: 800px){
+    .root-layout > div{
+        height: 100%;
+    }
+}
+@media (max-width: 800px){
+    .root-layout > div:nth-child(2){
+        order: -1;
+    }
+}
+.root-layout > div:nth-child(2){
+    grid-column: span 2;
+}
+.root-layout > div .part{
+    background-color: var(--part-bg-color);
+    border-radius: var(--main-border-radius);
+    overflow: hidden;
+}
+@media (max-width: 992px) {
+    .root-layout{
+        grid-template-columns: repeat(3, minmax(200px,1fr));
+    }
+    .root-layout > div:nth-child(2){
+        grid-column: span 1;
+    }
+}
+@media (max-width: 800px) {
+    .root-layout{
+        height: auto;
+        grid-template-columns: repeat(1, minmax(200px,1fr));
+    }
+}
+.root-layout .part.twitter{
+    padding: 1.5rem;
+}
+.root-layout .part.twitter .post-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+.root-layout .part.twitter .post-header .user-info{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.root-layout .part.twitter .post-header .user-info .img{
+    width: 40px;
+}
+.root-layout .part.twitter .post-header .user-info h5{
+    color: var(--text-color);
+}
+.root-layout .part.twitter .post-header .user-info span{
+    font-size: 0.75rem;
+    color: var(--text-color);
+}
+.root-layout .part.twitter .post-header .twitter-icon{
+    background-color: var(--bg-color);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: var(--sec-border-radius);
+}
+
+@media (max-width: 992px) {
+    .root-layout .part.twitter .post-header .twitter-icon{
+        font-size: 1rem;
+    }
+
+}
+.root-layout .part.twitter p{
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+}
+.root-layout .part.twitter .btns{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.root-layout .part.twitter .btns a{
+    color: var(--text-color);
+    border: 1px solid var(--text-darker-color);
+    padding: 0.5rem;
+    border-radius: var(--main-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--main-transition);
+    height: 40px;
+}
+.root-layout .part.twitter .btns a:nth-child(1){
+    border-radius: 50%;
+    width: 40px;
+}
+.root-layout .part.twitter .btns a:nth-child(2){
+    border-radius: var(--main-border-radius);
+    background-color: var(--text-color);
+    color: var(--part-bg-color);
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.root-layout .part.twitter .btns a:hover{
+    background-color: var(--btn-hover-color);
+    color: var(--part-bg-color);
+}
+.root-layout .part.notification > a{
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    gap: 0.25rem;
+    color: var(--main-color);
+    position: relative;
+}
+.root-layout .part.notification > a > div{
+    transform: translateX(30px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.root-layout .part.notification > a *{
+    transition: var(--main-transition);
+}
+.root-layout .part.notification > a:hover > div{
+    transform: translateX(0px);
+}
+.root-layout .part.notification > a:hover > div p{
+}
+.root-layout .part.notification > a span{
+    transform: translateX(5px) translateY(20px);
+    opacity: 0;
+}
+.root-layout .part.notification > a:hover span{
+    opacity: 1;
+    transform: translate(0px,0px);
+}
+.root-layout div:has(> .part.icon){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.root-layout .part.icon{
+    flex: 1;
+    position: relative;
+    width: calc(100% - 1rem);
+    cursor: pointer;
+    height: 70px;
+}
+.root-layout .part.icon a{
+    font-size: 1.5rem;
+    color: var(--text-darker-color);
+    transition: var(--main-transition);
+    transition-duration: 0.4s;
+}
+.root-layout .part.icon:hover a{
+    font-size: 2rem;
+}
+.root-layout .part.icon > *{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.root-layout .part.icon:first-child a:nth-child(1){
+    opacity: 0.3;
+    transform: translate(calc(-50% - 5px),calc(-50% - 5px));
+}
+.root-layout .part.icon:first-child a:nth-child(2){
+    opacity: 0.6;
+    transform: translate(-50%,-50%);
+}
+.root-layout .part.icon:first-child a:nth-child(3){
+    transform: translate(calc(-50% + 5px),calc(-50% + 5px));
+}
+.root-layout .part:has(.projects-imgs){
+    overflow: hidden;
+    flex: 1;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+.root-layout .part:has(.projects-imgs) a{
+    color: var(--text-color);
+    font-weight: 600;
+}
+.root-layout .part:has(.projects-imgs) a .top{
+    height: 20px;
+    margin-bottom: 0.5rem;
+}
+.root-layout .part:has(.projects-imgs) a .top p{
+    transition: var(--main-transition);
+}
+.root-layout .part:has(.projects-imgs) a .top p:first-child{
+    margin-bottom: 0.5rem;
+}
+.root-layout .part:has(.projects-imgs) a .top p:last-child{
+    opacity: 0;
+    color: var(--main-color);
+}
+.root-layout .part:has(.projects-imgs):hover a .top p{
+    transform: translateY(-1.5rem)
+}
+.root-layout .part:has(.projects-imgs):hover a .top p:first-child{
+    opacity: 0;
+}
+.root-layout .part:has(.projects-imgs):hover a .top p:last-child{
+    opacity: 1;
+}
+.root-layout .part .projects-imgs{
+    position: relative;
+    height: calc(100% - 0.5rem - 20px);
+}
+@media (max-width: 800px) {
+    .root-layout .part .projects-imgs{
+        height: 200px;
+    }
+}
+.root-layout .part .projects-imgs .img{
+    border-radius: var(--sec-border-radius);
+    overflow: hidden;
+    position: absolute;
+    transition: var(--main-transition);
+    height: 100%;
+    width: 100%;
+}
+.root-layout .part .projects-imgs .img:nth-child(2){
+    transform: translate(20px,20px);
+}
+.root-layout .part .projects-imgs .img:nth-child(3){
+    transform: translate(40px,40px);
+}
+.root-layout .part:hover .projects-imgs .img:nth-child(2){
+    transform: translate(10px,10px);
+}
+.root-layout .part:hover .projects-imgs .img:nth-child(3){
+    transform: translate(20px,20px);
+}
+.root-layout .part .projects-imgs .img img{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.1);
+}
+.root-layout .currently{
+    display: flex;;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: relative;
+}
+.root-layout .currently .bg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    animation: bg-rotation 15s ease-in-out 0s infinite forwards normal;
+}
+@keyframes bg-rotation {
+    0%{
+        transform: translate(-50%,-50%) rotateZ(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotateZ(360deg);
+    }
+}
+.root-layout .currently a{
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-size: 1.2rem;
+}
+.root-layout .currently a > *{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.root-layout .currently a > *{
+    transition: var(--main-transition);
+}
+.root-layout .currently a h3{
+    font-weight: 500;
+    transform: translate(-50%,-50%);
+    opacity: 1;
+    text-align: center;
+    width: 100%;
+}
+.root-layout .currently:hover a h3{
+    transform: translate(calc(-50% + 30px),-50%);
+    opacity: 0;
+    transition: none;
+}
+.root-layout .currently a p{
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+}
+.root-layout .currently a p span:first-child{
+    opacity: 0;
+    transition: var(--main-transition);
+}
+.root-layout .currently:hover a p{
+    gap: 0px;
+    opacity: 1;
+}
+.root-layout .currently:hover a p span:first-child{
+    opacity: 1;
+}
+.root-layout .main{
+    min-height: 400px;
+    position: relative;
+    height: 450px;
+    width: 100%;
+    background-color: transparent !important;
+}
+.root-layout .main > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: var(--main-transition);
+    transition-duration: 1s;
+}
+.root-layout .main > div .img{
+    width: 100%;
+    position: absolute;
+    transition: var(--main-transition);
+    border-radius: var(--main-border-radius);
+    overflow: hidden;
+    transform: scale(0.8);
+    /* opacity: 0.2; */
+}
+.root-layout .main > div .img.active{
+    transform: scale(1);
+}
+.root-layout .main > div .img > img{
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.root-layout .main ul{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+    background-color: rgb(0,0,0,0.3);
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-radius: var(--main-border-radius);
+    list-style: none;
+}
+.root-layout .main ul li{
+    width: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    cursor: pointer;
+}
+.root-layout .main ul li:hover,
+.root-layout .main ul li.active{
+    background-color: var(--text-color);
+}
+.root-layout .main > div:has(.avatar){
+    background-color: var(--part-bg-color);
+}
+.root-layout .main > div:has(.avatar) > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.root-layout .main > div:has(.avatar) .avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--text-darker-color);
+    margin-bottom: 1.75rem;
+}
+.root-layout .main > div:has(.avatar) > div h3{
+    font-size: 2rem;
+    color: var(--text-color);
+}
+.root-layout .main > div:has(.avatar) > div p{
+    font-size: 1.5rem;
+    color: var(--text-darker-color);
+}
+.root-layout .parts-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.root-layout .parts-wrapper > *{
+    width: calc((100% - 1rem) / 2);
+    height: 100px;
+    background-color: var(--part-bg-color);
+}
+.root-layout .parts-wrapper > div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.root-layout .parts-wrapper > div:first-child a{
+    color: var(--text-color);
+    font-weight: bold;
+    background-color: var(--bg-color);
+    background-image: url(../../assests/images/blurry-gradient-haikei.png);
+    background-size: cover;
+    background-position-y: 100px;
+    background-repeat: no-repeat;
+    padding: 0.75rem;
+    border-radius: var(--sec-border-radius);
+    border: 1px solid var(--text-darker-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: var(--main-transition);
+    transition-delay: 0.3s;
+}
+@media (max-width: 992px) {
+    .root-layout .parts-wrapper > div:first-child a{
+        gap: 0.25rem;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+    .root-layout .parts-wrapper > div:first-child a span{
+        text-align: center;
+    }
+    .root-layout .parts-wrapper > div:first-child a svg{
+        display: none;
+    }
+}
+@media (max-width: 800px) {
+    .root-layout .parts-wrapper > div:first-child a{
+        gap: 0.5rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+    .root-layout .parts-wrapper > div:first-child a svg{
+        display: unset;
+    }
+}
+.root-layout .parts-wrapper > div:first-child a:hover{
+    position: relative;
+    background-position-y: 0px;
+}
+.root-layout .parts-wrapper > div:last-child{
+    padding: 1rem 1.75rem;
+    position: relative;
+}
+.root-layout .parts-wrapper > div:last-child .img{
+    width: 80%;
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: top right;
+    transition: var(--main-transition);
+    overflow: hidden;
+    border-radius: var(--sec-border-radius);
+}
+.root-layout .parts-wrapper > div:last-child:hover .img{
+    transform: translateX(-50%) rotateZ(-10deg);
+}
+.root-layout .parts-wrapper > div:last-child .img img{
+    width: 100%;
+}
+.root-layout .parts-wrapper > div:last-child a{
+    color: var(--main-color);
+    transition: var(--main-transition);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.root-layout .parts-wrapper > div:last-child:hover a{
+    opacity: 1;
+}
+@media (max-width: 800px) {
+    .root-layout .parts-wrapper{
+        flex-direction: column;
+    }
+    .root-layout .parts-wrapper > *{
+        width: 100%;
+    }
+}
+.root-layout .right .part:has(.map) {
+    max-height: 250px;
+}
+.root-layout .right .part:has(.map) .map{
+    scale: 1.1;
+    transition: var(--main-transition);
+}
+.root-layout .right .part:has(.map):hover .map{
+    scale: 1.2;
+}
+.root-layout .right div:has(.part img){
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 170px;
+}
+.root-layout .right div:has(.part img) .part{
+    background-color: transparent !important;
+    height: 100%;
+}
+.root-layout .right div:has(.part img) .part img{
+    scale: 1.1;
+}
+.root-layout .right .themes{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--main-transition);
+}
+.root-layout .right .themes:hover{
+    background-color: var(--themes-hover-color);
+}
+.root-layout .right .themes > div{
+    width: calc((100% - 4px) / 2);
+    height: calc(100% - 2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--main-border-radius) - 2px);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.root-layout .right .themes > div.active{
+    background-color: var(--bg-color);
+}
+.root-layout .right .themes > div svg{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 10px;
+    color: #000;
+}
+.root-layout .right .themes .light svg{
+    background-color: rgb(224, 224, 0);
+}
+.root-layout .right .themes .dark svg{
+    background-color: rgb(106, 106, 251);
+}
