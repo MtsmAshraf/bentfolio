@@ -29,10 +29,11 @@ library.add(fas, faXTwitter, faFontAwesome)
 const RootLayout = () => {
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch()
-
+  let animationIndex = 0;
   let ulToggle = () => {
     document.querySelectorAll(".root-layout .main ul li").forEach((li,index) => {
       li.onclick = () => {
+        animationIndex = index;
         document.querySelectorAll(".root-layout .main ul li").forEach((li) => {
           li.classList.remove("active")
         })
@@ -48,13 +49,13 @@ const RootLayout = () => {
     })
   }
 
-  let index = 0;
   let mainAnimation = setInterval(() => {
-    if(index === document.querySelectorAll(".root-layout .main ul li").length){
-      index = 0;      
+    console.log(animationIndex)
+    if(animationIndex === document.querySelectorAll(".root-layout .main ul li").length){
+      animationIndex = 0;      
     }
-    document.querySelectorAll(".root-layout .main ul li")[index].click();
-    index++
+    document.querySelectorAll(".root-layout .main ul li")[animationIndex].click();
+    animationIndex++
   }, 5000);
 
   let themesToggle = () => {
